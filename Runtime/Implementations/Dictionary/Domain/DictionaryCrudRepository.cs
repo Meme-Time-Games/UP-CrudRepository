@@ -3,7 +3,7 @@ using CrudRepository.Core;
 
 namespace CrudRepository.Implementations
 {
-    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData> where TData : IIdentifiable<TId>
+    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData>
     {
         private Dictionary<TId, TData> _datas = new Dictionary<TId, TData>();
 
@@ -17,16 +17,14 @@ namespace CrudRepository.Implementations
             return _datas[id];
         }
 
-        public void Insert(TData data)
+        public void Insert(TId id, TData data)
         {
-            _datas.Add(data.Id, data);
+            _datas.Add(id, data);
         }
 
-        public void Update(TData data)
+        public void Update(TId id, TData data)
         {
-            TId key = data.Id;
-
-            _datas[key] = data;
+            _datas[id] = data;
         }
 
         public void DeleteById(TId id)
@@ -41,7 +39,7 @@ namespace CrudRepository.Implementations
 
         public bool IsThisContained(TData dataType)
         {
-            bool isContained = _datas.ContainsKey(dataType.Id);
+            bool isContained = _datas.ContainsValue(dataType);
 
             return isContained;
         }

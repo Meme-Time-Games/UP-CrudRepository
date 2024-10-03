@@ -6,8 +6,8 @@ namespace CrudRepository.Core
     {
         TData GetById(TId id);
         IEnumerable<TData> GetAll();
-        void Insert(TData data);
-        void Update(TData data);
+        void Insert(TId id, TData data);
+        void Update(TId id, TData data);
         void DeleteById(TId id);
         void DeleteAll();
         bool IsThisContained(TData data);

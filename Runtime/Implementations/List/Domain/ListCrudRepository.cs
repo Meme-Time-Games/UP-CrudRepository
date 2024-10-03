@@ -9,7 +9,7 @@ namespace CrudRepository.Implementations
 
         public IEnumerable<TData> GetAll()
         {
-            return _datas as IEnumerable<TData>;
+            return _datas;
         }
 
         public TData GetById(int id)
@@ -17,12 +17,12 @@ namespace CrudRepository.Implementations
             return _datas[id];
         }
 
-        public void Insert(TData data)
+        public void Insert(int id,TData data)
         {
             _datas.Add(data);
         }
 
-        public void Update(TData data)
+        public void Update(int id, TData data)
         {
             int index = _datas.FindIndex(x => x.Equals(data));
 
