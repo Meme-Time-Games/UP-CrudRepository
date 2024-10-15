@@ -9,7 +9,14 @@ namespace CrudRepository.Implementations
 
         public IEnumerable<TData> GetAll()
         {
-            return _datas as IEnumerable<TData>;
+            List<TData> datas = new List<TData>();
+
+            foreach (var dataKV in _datas)
+            {
+                datas.Add(dataKV.Value);
+            }
+            
+            return datas;
         }
 
         public TData GetById(TId id)
