@@ -3,10 +3,10 @@ using CrudRepository.Core;
 
 namespace CrudRepository.Implementations
 {
-    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData>
+    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData> where TData : class
     {
         private Dictionary<TId, TData> _datas = new Dictionary<TId, TData>();
-
+        
         public IEnumerable<TData> GetAll()
         {
             List<TData> datas = new List<TData>();
@@ -21,6 +21,11 @@ namespace CrudRepository.Implementations
 
         public TData GetById(TId id)
         {
+            if (!IsThisContainedById(id))
+            {
+                return null;
+            }
+            
             return _datas[id];
         }
 
