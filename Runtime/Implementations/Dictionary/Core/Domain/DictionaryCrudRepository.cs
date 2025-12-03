@@ -3,7 +3,7 @@ using CrudRepository.Core;
 
 namespace CrudRepository.Implementations
 {
-    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData> where TData : class
+    public class DictionaryCrudRepository<TId, TData> : ICrudRepository<TId, TData>
     {
         private Dictionary<TId, TData> _datas = new Dictionary<TId, TData>();
         
@@ -23,7 +23,7 @@ namespace CrudRepository.Implementations
         {
             if (!IsThisContainedById(id))
             {
-                return null;
+                return default;
             }
             
             return _datas[id];

@@ -3,7 +3,7 @@ using CrudRepository.Implementations;
 
 namespace CrudRepository.Installers
 {
-    public abstract class DictionaryCrudRepositoryInstaller<TId, TData> : CrudRepositoryInstaller<TId, TData> where TData : class
+    public abstract class DictionaryCrudRepositoryInstaller<TId, TData> : CrudRepositoryInstaller<TId, TData>
     {
         protected override ICrudRepository<TId, TData> GetData()
         {
