@@ -7,7 +7,7 @@ namespace CrudRepository.Installers
     {
         protected override ICrudRepository<TId, TData> GetData()
         {
-            return new DictionaryCrudRepository<TId, TData >();
+            return new DictionaryCrudRepository<TId, TData>();
         }
     }
 }
